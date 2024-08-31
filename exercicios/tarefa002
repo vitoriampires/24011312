@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main() {
+    char nomeProduto[50];
+    int quantidade;
+    float precoUnitario;
+    float valorTotal;
+    float valorTotalCompra;
+    float valorTotalDia = 0.0;
+    char continuarProduto;
+    char continuarCompra;
+    char mostrarTotalDia;
+
+    do {
+        valorTotalCompra = 0.0;
+
+        do {
+            printf("Digite o nome do produto: ");
+            scanf("%s", nomeProduto);
+
+            printf("Digite a quantidade vendida: ");
+            scanf("%d", &quantidade);
+
+            printf("Digite o preço unitário do produto: ");
+            scanf("%f", &precoUnitario);
+
+            valorTotal = quantidade * precoUnitario;
+
+            valorTotalCompra += valorTotal;
+
+            printf("Valor total da venda de %s: R$ %.2f\n", nomeProduto, valorTotal);
+
+            printf("Deseja adicionar outro produto a esta compra? (s/n): ");
+            scanf(" %c", &continuarProduto);
+
+        } while (continuarProduto == 's' || continuarProduto == 'S');
+
+        printf("\nValor total da compra: R$ %.2f\n", valorTotalCompra);
+
+        valorTotalDia += valorTotalCompra;
+
+        printf("Deseja ver o valor total arrecadado no dia? (s/n): ");
+        scanf(" %c", &mostrarTotalDia);
+
+        if (mostrarTotalDia == 's' || mostrarTotalDia == 'S') {
+            printf("\nValor total arrecadado no dia: R$ %.2f\n", valorTotalDia);
+        }
+
+        printf("\nDeseja registrar outra compra? (s/n): ");
+        scanf(" %c", &continuarCompra);
+
+    } while (continuarCompra == 's' || continuarCompra == 'S');
+
+    return 0;
+}
