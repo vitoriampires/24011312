@@ -1,1 +1,1 @@
-# algoritimos e robotica
+# repositório para a disciplina de algoritmos e robótica
